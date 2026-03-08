@@ -53,6 +53,7 @@ input::placeholder {
 button {
   padding: 10px 20px;
   margin-top: 10px;
+  margin-right: 5px;
   background: #555;
   color: #eee;
   border: none;
@@ -88,6 +89,7 @@ ul li {
 <input type="text" id="desc" placeholder="Item">
 <input type="number" id="amt" placeholder="Amount">
 <button onclick="add()">Add</button>
+<button onclick="resetBudget()">Reset</button>
 
 <ul id="list"></ul>
 </div>
@@ -117,6 +119,13 @@ function add() {
     i.innerText = get_item + ": " + get_amount;
     l.appendChild(i);
   }
+}
+
+function resetBudget() {
+  total = 0;
+  b.innerText = total;
+  l.innerHTML = '';
+  localStorage.clear();
 }
 
 if ("serviceWorker" in navigator) {
